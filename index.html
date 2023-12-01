@@ -11,17 +11,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       margin: 0;
       padding: 0;
       font-family: 'Playfair Display', serif;
-      background: linear-gradient(45deg, #8B4513, #000080, #800000); /* Brown, Navy Blue, Maroon gradient background */
+      background: linear-gradient(45deg, #8B4513, #000080, #800000);
     }
 
-    h1{
+    h1 {
       margin-top: 20px;
       text-align: center;
-      background-color: #000000; /* White background for the plaque */
+      background-color: #000000;
       color: white;
       padding: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -29,10 +30,11 @@
 
     .gallery {
       position: relative;
-      width: 800px; /* Adjust the width as needed */
-      height: 600px; /* Adjust the height as needed */
-      background-color: #fff; /* White frame for the art */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Simulate frame shadow */
+      width: 100%;
+      max-width: 800px; /* Adjust the max-width as needed */
+      height: 60vh;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
       margin: 30px 0;
     }
 
@@ -50,9 +52,9 @@
       width: 100%;
       display: grid;
       background-color: black;
-      grid-template-columns: 320px 198px 153px 50px;
-      grid-template-rows: 414px 130px 155px 20px;
-      gap: 9px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 5px;
     }
 
     .item {
@@ -97,10 +99,23 @@
       font-size: 1.2em;
       margin-top: 20px;
       text-align: center;
-      background-color: #000000; /* White background for the plaque */
+      background-color: #000000;
       color: white;
       padding: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Simulate plaque shadow */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 800px) {
+      .gallery {
+        height: 80vh; /* Adjust the height as needed for smaller screens */
+      }
+
+      .frame {
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+      }
     }
   </style>
 </head>
@@ -143,7 +158,7 @@
       }
 
       const descriptions = [
-        "In the dance of colors, red and blue waltz passionately on the canvas, creating a vibrant romance.",
+      "In the dance of colors, red and blue waltz passionately on the canvas, creating a vibrant romance.",
         "Amidst the chaos of geometric shapes, a mystery unfolds, leaving the viewer captivated by the enigma of the artwork.",
         "Yellow, like the warm glow of the sun, casts its rays across the canvas, bringing a sense of humor to the otherwise structured chaos.",
         "As grey shadows loom, the painting takes a dark turn, invoking a sense of horror that lingers in the mind.",
