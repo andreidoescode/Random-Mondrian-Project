@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Mondrian Project</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1.2em;
+      margin-top: 30px; /* Increase margin to 30px */
+      text-align: center;
+    }
+
+    .container {
+      height: 748px;
+      width: 748px;
+      display: grid;
+      background-color: black;
+      grid-template-columns: 320px 198px 153px 50px;
+      grid-template-rows: 414px 130px 155px 20px;
+      gap: 9px;
+    }
+
+    .item {
+      background-color: #F0F1EC;
+    }
+
+    .red {
+      background-color: #E72F24;
+    }
+
+    .white1 {
+      grid-column: span 3;
+    }
+
+    .white2 {
+      grid-row: span 2;
+    }
+
+    .white3 {
+      grid-row: span 2;
+      grid-column: span 2;
+    }
+
+    .blue {
+      background-color: #004592;
+      border-bottom: 10px solid #000;
+    }
+
+    .white4 {
+      grid-row: span 2;
+    }
+
+    .yellow {
+      background-color: #F9D01E;
+    }
+
+    .grey {
+      background-color: #232629;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Computer Dreams of Mondrian</h1>
+
+  <div class="container" id="randomMondrian">
+  </div>
+
+  <div class="description" id="paintingDescription"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("randomMondrian");
+      const descriptionContainer = document.getElementById("paintingDescription");
+
+      function getRandomColor() {
+        const colors = ["#E72F24", "#F0F1EC", "#004592", "#F9D01E", "#232629"];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      function getRandomShape() {
+        const shapes = ["red", "white1", "white2", "white3", "blue", "white4", "yellow", "grey"];
+        return shapes[Math.floor(Math.random() * shapes.length)];
+      }
+
+      function createRandomElement() {
+        const element = document.createElement("div");
+        element.classList.add("item", getRandomShape());
+        element.style.backgroundColor = getRandomColor();
+        container.appendChild(element);
+      }
+
+      for (let i = 0; i < 9; i++) {
+        createRandomElement();
+      }
+
+      const descriptions = [
+        "In the dance of colors, red and blue waltz passionately on the canvas, creating a vibrant romance.",
+        "Amidst the chaos of geometric shapes, a mystery unfolds, leaving the viewer captivated by the enigma of the artwork.",
+        "Yellow, like the warm glow of the sun, casts its rays across the canvas, bringing a sense of humor to the otherwise structured chaos.",
+        "As grey shadows loom, the painting takes a dark turn, invoking a sense of horror that lingers in the mind.",
+        "A symphony of white spans the canvas, creating a serene atmosphere with a touch of whimsy.",
+        "In the world of Mondrian, colors collide and collaborate, creating a visual masterpiece that defies conventions.",
+        "The blue abyss beckons, inviting the viewer to dive into the depths of artistic expression.",
+        "Red, the color of passion, boldly asserts itself against the cool embrace of blue, igniting a fiery tale on the canvas.",
+        "A yellow burst of energy breaks through the monotony, injecting a dose of playfulness into the structured composition.",
+        "The canvas whispers a tale of love and loss, as each color contributes to the narrative of the ever-evolving painting.",
+        "Geometry becomes poetry, and each line tells a story of mathematical elegance.",
+        "Mondrian's legacy echoes through the precision of each straight line, a testament to the artist's enduring influence.",
+        "The canvas becomes a metaphorical cityscape, with rectangles and lines forming the architecture of imagination.",
+        "In the silence of the canvas, sharp angles speak volumes about the artist's contemplative process.",
+        "Straight lines intersect, creating a visual puzzle that invites the viewer to decipher its enigmatic language.",
+        "Rectangles converge and diverge, creating a visual rhythm that resonates with the heartbeat of artistic expression.",
+        "A mood of contemplative order emerges, as each shape contributes to the meditative silence of the composition.",
+        "Metaphors unfold in the language of geometry, where rectangles become symbols of balance and equilibrium.",
+        "Sharp angles carve pathways through the abstract landscape, inviting introspection and reflection.",
+        "The canvas becomes a stage for a theatrical play of lines and shapes, each element playing its unique role."
+        // ... add more descriptions
+      ];
+
+      const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
+      descriptionContainer.innerText = randomDescription;
+    });
+  </script>
+</body>
+
+</html>
